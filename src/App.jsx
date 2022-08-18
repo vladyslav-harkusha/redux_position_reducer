@@ -1,6 +1,7 @@
 import './App.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import { actions as positionActions } from './store/positionReducer';
+import { positionActions } from './store/positionReducer';
+import { asyncActions } from './store/asyncActions/doACircle';
 
 function App() {
   const dispatch = useDispatch();
@@ -19,7 +20,7 @@ function App() {
   const distance = getDistanceTo(coordX, coordY);
 
   const goCircleAsync = () => {
-    dispatch(positionActions.doACircle(300))
+    dispatch(asyncActions.doACircle(300))
       .then(() => {
         console.log('Finished');
         alert('Finita');
