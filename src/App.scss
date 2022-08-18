@@ -1,0 +1,48 @@
+.app {
+  box-sizing: border-box;
+
+  &__buttons {
+    margin: 0 auto 50px;
+    min-width: 160px;
+  }
+
+  &__button-up-cont {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__button-right-left-cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+  }
+
+  &__button {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+
+  &__coords {
+    font-size: 22px;
+    font-weight: bold;
+  }
+
+  &__field {
+    width: 400px;
+    height: 200px;
+    margin: 0 auto;
+    border: 2px dashed #000;
+
+    &-item {
+      width: 40px;
+      height: 40px;
+      border: 3px solid teal;
+      border-radius: 10px;
+      background-color: wheat;
+    }
+  }
+}

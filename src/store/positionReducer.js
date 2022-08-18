@@ -1,4 +1,4 @@
-const defaultState = {
+const defaultPosition = {
   x: 0,
   y: 0,
 }
@@ -15,21 +15,21 @@ export const actions = {
   moveDown: () => ({ type: MOVE_DOWN }),
 };
 
-export const positionReducer = (state = defaultState, action) => {
+export const positionReducer = (position = defaultPosition, action) => {
   switch (action.type) {
     case MOVE_LEFT:
-      return state;
+      return { ...position, x: position.x - 1};
 
     case MOVE_RIGHT:
-      return state;
+      return { ...position, x: position.x + 1 };
 
     case MOVE_UP:
-      return state;
+      return { ...position, y: position.y + 1 };
 
     case MOVE_DOWN:
-      return state;
+      return { ...position, y: position.y - 1 };
   
     default:
-      return state;
+      return position;
   }
 }
