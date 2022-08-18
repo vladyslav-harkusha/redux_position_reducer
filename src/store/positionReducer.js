@@ -1,3 +1,5 @@
+
+
 const defaultPosition = {
   x: 0,
   y: 0,
@@ -13,6 +15,25 @@ export const actions = {
   moveRight: () => ({ type: MOVE_RIGHT }),
   moveUp: () => ({ type: MOVE_UP }),
   moveDown: () => ({ type: MOVE_DOWN }),
+  doACircle: (delay) => (dispatch) => {
+    return new Promise(resolve => {
+      dispatch(actions.moveRight());
+
+      setTimeout(() => {
+        dispatch(actions.moveDown());
+      }, delay);
+
+      setTimeout(() => {
+        dispatch(actions.moveLeft());
+      }, 2 * delay);
+
+      setTimeout(() => {
+        dispatch(actions.moveUp());
+
+        resolve();
+      }, 3 * delay);
+    });
+  },
 };
 
 export const positionReducer = (position = defaultPosition, action) => {

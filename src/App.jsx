@@ -7,10 +7,24 @@ function App() {
   const coordX = useSelector(state => state.x);
   const coordY = useSelector(state => state.y);
 
-  console.log(coordX, coordY);
-
   const step = 40;
-  const styleForCube = { transform: `translate(${coordX * step}px, ${-coordY * step}px)` }
+  const styleForCube = { transform: `translate(${coordX * step}px, ${-coordY * step}px)` };
+
+  const getDistanceTo = (X, Y) => {
+    const startX = 0;
+    const startY = 0;
+
+    return Math.abs(X - startX) + Math.abs(Y - startY)
+  };
+  const distance = getDistanceTo(coordX, coordY);
+
+  const goCircleAsync = () => {
+    dispatch(positionActions.doACircle(300))
+      .then(() => {
+        console.log('Finished');
+        alert('Finita');
+      });
+  };
 
   return (
     <div className="app">
@@ -30,6 +44,10 @@ function App() {
           <div className="app__button-up-cont">
             <button onClick={() => dispatch(positionActions.moveDown())} className="app__button">v</button>
           </div>
+
+          <div className="app__button-up-cont">
+            <button onClick={goCircleAsync} className="app__button app__button-rotate">Rotate</button>
+          </div>
         </div>
 
         <div className="app__field">
@@ -37,7 +55,7 @@ function App() {
             className="app__field-item" 
             style={styleForCube}
           >
-            Cube
+            {distance}
           </div>
         </div>
       </div>

@@ -1,4 +1,7 @@
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { positionReducer } from "./positionReducer";
+import thunk from 'redux-thunk';
 
-export const store = createStore(positionReducer);
+const store = createStore(positionReducer, applyMiddleware(thunk));
+
+export default store;
