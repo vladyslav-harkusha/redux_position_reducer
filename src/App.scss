@@ -1,6 +1,8 @@
-.app {
+* {
   box-sizing: border-box;
+}
 
+.app {
   &__buttons {
     margin: 0 auto 50px;
     min-width: 160px;
@@ -43,6 +45,8 @@
       border: 3px solid teal;
       border-radius: 10px;
       background-color: wheat;
+      text-align: center;
+      color: green;
     }
   }
 }

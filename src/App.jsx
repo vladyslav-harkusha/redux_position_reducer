@@ -1,7 +1,6 @@
 import './App.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { actions as positionActions } from './store/positionReducer';
-import { store } from './store'
 
 function App() {
   const dispatch = useDispatch();
@@ -9,6 +8,9 @@ function App() {
   const coordY = useSelector(state => state.y);
 
   console.log(coordX, coordY);
+
+  const step = 40;
+  const styleForCube = { transform: `translate(${coordX * step}px, ${-coordY * step}px)` }
 
   return (
     <div className="app">
@@ -31,8 +33,11 @@ function App() {
         </div>
 
         <div className="app__field">
-          <div className="app__field-item">
-            
+          <div
+            className="app__field-item" 
+            style={styleForCube}
+          >
+            Cube
           </div>
         </div>
       </div>
