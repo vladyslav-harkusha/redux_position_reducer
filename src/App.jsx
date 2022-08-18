@@ -27,23 +27,39 @@ function App() {
       });
   };
 
+  const goUp = () => {
+    if (coordY < 0) dispatch(positionActions.moveUp())
+  };
+
+  const goLeft = () => {
+    if (coordX > 0) dispatch(positionActions.moveLeft())
+  };
+
+  const goRight = () => {
+    if (coordX < 9) dispatch(positionActions.moveRight())
+  };
+
+  const goDown = () => {
+    if (coordY > -4) dispatch(positionActions.moveDown())
+  };
+
   return (
     <div className="app">
       <h1 className='app__title'>Position reducer</h1>
       <div className="app__container">
         <div className="app__buttons">
           <div className="app__button-up-cont">
-            <button onClick={() => dispatch(positionActions.moveUp())} className="app__button">^</button>
+            <button onClick={goUp} className="app__button">^</button>
           </div>
 
           <div className="app__button-right-left-cont">
-            <button onClick={() => dispatch(positionActions.moveLeft())} className="app__button">{'<'}</button>
+            <button onClick={goLeft} className="app__button">{'<'}</button>
             <p className='app__coords'>{coordX} : {coordY}</p>
-            <button onClick={() => dispatch(positionActions.moveRight())} className="app__button">{'>'}</button>
+            <button onClick={goRight} className="app__button">{'>'}</button>
           </div>
 
           <div className="app__button-up-cont">
-            <button onClick={() => dispatch(positionActions.moveDown())} className="app__button">v</button>
+            <button onClick={goDown} className="app__button">v</button>
           </div>
 
           <div className="app__button-up-cont">
