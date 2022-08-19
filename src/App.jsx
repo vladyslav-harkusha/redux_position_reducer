@@ -1,6 +1,6 @@
 import './App.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import { positionActions } from './store/positionReducer';
+import { positionActions, getPosition } from './store/positionReducer';
 import { asyncActions } from './store/asyncActions/doACircle';
 
 function App() {
